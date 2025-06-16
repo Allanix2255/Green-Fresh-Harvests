@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Green Fresh Harvests</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Green Fresh Harvests Logo">
+                Green Fresh Harvests
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 style="color: var(--primary-green); margin-bottom: 2rem;">
+                    <i class="fas fa-credit-card"></i> Checkout
+                </h1>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                    <!-- Order Summary -->
+                    <div>
+                        <h2 style="color: var(--primary-green); margin-bottom: 1.5rem;">Order Summary</h2>
+                        <div id="checkoutOrderSummary">
+                            <!-- Order items will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div>
+                        <div class="payment-methods">
+                            <h2 style="color: var(--primary-green); margin-bottom: 1.5rem;">Choose Payment Method</h2>
+                            
+                            <div class="payment-grid">
+                                <!-- Mobile Money -->
+                                <div class="payment-option" onclick="selectPayment('mobile-money')">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <h4>Mobile Money</h4>
+                                    <div class="mobile-money-logos">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/MTN_Logo.svg/200px-MTN_Logo.svg.png" alt="MTN" class="mobile-money-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Airtel_logo_logotype.png/200px-Airtel_logo_logotype.png" alt="Airtel" class="mobile-money-logo">
+                                    </div>
+                                    <p>MTN & Airtel Money</p>
+                                </div>
+
+                                <!-- PayPal -->
+                                <div class="payment-option" onclick="selectPayment('paypal')">
+                                    <div class="payment-icon">
+                                        <i class="fab fa-paypal"></i>
+                                    </div>
+                                    <h4>PayPal</h4>
+                                    <p>Secure online payment</p>
+                                </div>
+
+                                <!-- Cash on Delivery -->
+                                <div class="payment-option" onclick="selectPayment('cod')">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <h4>Cash on Delivery</h4>
+                                    <p>Pay when you receive</p>
+                                </div>
+
+                                <!-- WhatsApp Order -->
+                                <div class="payment-option" onclick="selectPayment('whatsapp')">
+                                    <div class="payment-icon">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <h4>WhatsApp Order</h4>
+                                    <p>Order via WhatsApp</p>
+                                </div>
+                            </div>
+
+                            <!-- Payment Details Sections -->
+                            <div id="mobile-money-details" class="payment-details">
+                                <h3 style="color: var(--primary-green);">Mobile Money Payment</h3>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div class="payment-info">
+                                        <h4><i class="fas fa-mobile-alt"></i> MTN Mobile Money</h4>
+                                        <p><strong>Number:</strong> 0742455040</p>
+                                        <p><strong>Name:</strong> Green Fresh Harvests</p>
+                                        <p>Send payment and screenshot confirmation</p>
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4><i class="fas fa-mobile-alt"></i> Airtel Money</h4>
+                                        <p><strong>Number:</strong> 0742455040</p>
+                                        <p><strong>Name:</strong> Green Fresh Harvests</p>
+                                        <p>Send payment and screenshot confirmation</p>
+                                    </div>
+                                </div>
+                                <button class="btn" onclick="processMobileMoneyPayment()" style="width: 100%; margin-top: 1rem;">
+                                    <i class="fas fa-mobile-alt"></i> Proceed with Mobile Money
+                                </button>
+                            </div>
+
+                            <div id="paypal-details" class="payment-details">
+                                <h3 style="color: var(--primary-green);">PayPal Payment</h3>
+                                <div class="payment-info">
+                                    <h4><i class="fab fa-paypal"></i> PayPal Account</h4>
+                                    <p><strong>Email:</strong> allanixtimothy99@gmail.com</p>
+                                    <p>Send payment to our PayPal account and include your order details</p>
+                                </div>
+                                <button class="btn" onclick="processPayPalPayment()" style="width: 100%; margin-top: 1rem;">
+                                    <i class="fab fa-paypal"></i> Pay with PayPal
+                                </button>
+                            </div>
+
+                            <div id="cod-details" class="payment-details">
+                                <h3 style="color: var(--primary-green);">Cash on Delivery</h3>
+                                <div class="payment-info">
+                                    <h4><i class="fas fa-money-bill-wave"></i> Payment on Delivery</h4>
+                                    <p>Pay cash when your order is delivered to your location</p>
+                                    <p><strong>Available in:</strong> Kampala and surrounding areas</p>
+                                    <p><strong>Delivery Fee:</strong> UGX 5,000 (Free for orders above UGX 50,000)</p>
+                                </div>
+                                <button class="btn" onclick="processCODPayment()" style="width: 100%; margin-top: 1rem;">
+                                    <i class="fas fa-truck"></i> Order with Cash on Delivery
+                                </button>
+                            </div>
+
+                            <div id="whatsapp-details" class="payment-details">
+                                <h3 style="color: var(--primary-green);">WhatsApp Order</h3>
+                                <div class="payment-info">
+                                    <h4><i class="fab fa-whatsapp"></i> Order via WhatsApp</h4>
+                                    <p>Send your order directly to our WhatsApp for personalized service</p>
+                                    <p><strong>Number:</strong> +256742455040</p>
+                                    <p>We'll confirm availability and arrange payment & delivery</p>
+                                </div>
+                                <button class="btn whatsapp-btn" onclick="processWhatsAppOrder()" style="width: 100%; margin-top: 1rem;">
+                                    <i class="fab fa-whatsapp"></i> Send Order to WhatsApp
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="payment-methods">
+                            <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Delivery Information</h3>
+                            <form id="deliveryForm">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+256...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Delivery Address *</label>
+                                    <textarea id="address" name="address" rows="3" required placeholder="Enter your complete delivery address including landmarks"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notes">Special Instructions (Optional)</label>
+                                    <textarea id="notes" name="notes" rows="2" placeholder="Any special delivery instructions or notes"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Green Fresh Harvests. All rights reserved. | Kyengera, Kampala, Uganda</p>
+            <p>Phone: +256742455040 | Email: allanixtimothy99@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let selectedPaymentMethod = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckoutSummary();
+        });
+
+        function selectPayment(method) {
+            // Remove previous selection
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelectorAll('.payment-details').forEach(detail => {
+                detail.classList.remove('active');
+            });
+
+            // Select new payment method
+            event.currentTarget.classList.add('selected');
+            document.getElementById(method + '-details').classList.add('active');
+            selectedPaymentMethod = method;
+        }
+
+        function loadCheckoutSummary() {
+            const cart = getCart();
+            const summaryDiv = document.getElementById('checkoutOrderSummary');
+            
+            if (cart.length === 0) {
+                summaryDiv.innerHTML = '<p>Your cart is empty. <a href="products.html">Continue shopping</a></p>';
+                return;
+            }
+
+            const groupedCart = groupCartItems(cart);
+            let total = 0;
+            let summaryHTML = '<div class="cart-summary">';
+            
+            Object.keys(groupedCart).forEach(key => {
+                const item = groupedCart[key];
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                summaryHTML += `
+                    <div class="summary-row">
+                        <span>${item.name} (${item.quantity} ${item.unit})</span>
+                        <span>UGX ${itemTotal.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            
+            const deliveryFee = total >= 50000 ? 0 : 5000;
+            const grandTotal = total + deliveryFee;
+            
+            summaryHTML += `
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>UGX ${total.toLocaleString()}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee:</span>
+                    <span>${deliveryFee === 0 ? 'FREE' : 'UGX 5,000'}</span>
+                </div>
+                <div class="summary-row">
+                    <span><strong>Total:</strong></span>
+                    <span><strong>UGX ${grandTotal.toLocaleString()}</strong></span>
+                </div>
+            </div>`;
+            
+            summaryDiv.innerHTML = summaryHTML;
+        }
+
+        function processMobileMoneyPayment() {
+            if (!validateDeliveryForm()) return;
+            
+            const orderDetails = getOrderDetails();
+            const message = `🛒 *Green Fresh Harvests - Mobile Money Order*\\n\\n${orderDetails}\\n\\n💳 *Payment Method:* Mobile Money (MTN/Airtel)\\n📱 *Payment Number:* 0742455040\\n\\nPlease send payment and screenshot confirmation. We'll process your order immediately after payment confirmation.`;
+            
+            sendWhatsAppMessage(message);
+        }
+
+        function processPayPalPayment() {
+            if (!validateDeliveryForm()) return;
+            
+            const orderDetails = getOrderDetails();
+            const message = `🛒 *Green Fresh Harvests - PayPal Order*\\n\\n${orderDetails}\\n\\n💳 *Payment Method:* PayPal\\n📧 *PayPal Email:* allanixtimothy99@gmail.com\\n\\nPlease send payment to our PayPal account and include this order reference. We'll process your order after payment confirmation.`;
+            
+            sendWhatsAppMessage(message);
+        }
+
+        function processCODPayment() {
+            if (!validateDeliveryForm()) return;
+            
+            const orderDetails = getOrderDetails();
+            const message = `🛒 *Green Fresh Harvests - Cash on Delivery*\\n\\n${orderDetails}\\n\\n💰 *Payment Method:* Cash on Delivery\\n🚚 *Payment:* Pay cash when order is delivered\\n\\nWe'll contact you to confirm delivery time and location.`;
+            
+            sendWhatsAppMessage(message);
+        }
+
+        function processWhatsAppOrder() {
+            if (!validateDeliveryForm()) return;
+            
+            const orderDetails = getOrderDetails();
+            const message = `🛒 *Green Fresh Harvests Order*\\n\\n${orderDetails}\\n\\nPlease confirm this order and let me know your preferred payment method and delivery arrangements.`;
+            
+            sendWhatsAppMessage(message);
+        }
+
+        function validateDeliveryForm() {
+            const form = document.getElementById('deliveryForm');
+            const formData = new FormData(form);
+            
+            if (!formData.get('fullName') || !formData.get('phone') || !formData.get('address')) {
+                showNotification('Please fill in all required delivery information', 'error');
+                return false;
+            }
+            return true;
+        }
+
+        function getOrderDetails() {
+            const cart = getCart();
+            const groupedCart = groupCartItems(cart);
+            const form = document.getElementById('deliveryForm');
+            const formData = new FormData(form);
+            
+            let orderText = '*Order Items:*\\n';
+            let total = 0;
+            
+            Object.keys(groupedCart).forEach(key => {
+                const item = groupedCart[key];
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                orderText += `• ${item.name} - ${item.quantity} ${item.unit} - UGX ${itemTotal.toLocaleString()}\\n`;
+            });
+            
+            const deliveryFee = total >= 50000 ? 0 : 5000;
+            const grandTotal = total + deliveryFee;
+            
+            orderText += `\\n*Order Summary:*\\n`;
+            orderText += `Subtotal: UGX ${total.toLocaleString()}\\n`;
+            orderText += `Delivery: ${deliveryFee === 0 ? 'FREE' : 'UGX 5,000'}\\n`;
+            orderText += `*Total: UGX ${grandTotal.toLocaleString()}*\\n\\n`;
+            
+            orderText += `*Delivery Information:*\\n`;
+            orderText += `Name: ${formData.get('fullName')}\\n`;
+            orderText += `Phone: ${formData.get('phone')}\\n`;
+            orderText += `Address: ${formData.get('address')}\\n`;
+            if (formData.get('notes')) {
+                orderText += `Notes: ${formData.get('notes')}\\n`;
+            }
+            
+            return orderText;
+        }
+
+        function sendWhatsAppMessage(message) {
+            const whatsappURL = `https://wa.me/256742455040?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // Clear cart after successful order
+            localStorage.removeItem('cart');
+            updateCartCount();
+            showNotification('Order sent! Redirecting to WhatsApp...', 'success');
+            
+            // Redirect to thank you page or home after a delay
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

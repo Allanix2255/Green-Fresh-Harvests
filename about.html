@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Green Fresh Harvests</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Green Fresh Harvests Logo">
+                Green Fresh Harvests
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(75, 124, 89, 0.7)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); height: 60vh;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>About Green Fresh Harvests</h1>
+                    <p>Your trusted partner for premium fresh fruits in Uganda</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <h2 style="color: var(--primary-green); margin-bottom: 1.5rem; font-size: 2.2rem;">Our Story</h2>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                            Founded in the heart of Kyengera, Kampala, Green Fresh Harvests began as a small family business with a simple mission: to bring the freshest, highest-quality fruits directly from local farms to your table.
+                        </p>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                            What started as a passion for supporting local farmers and providing healthy, nutritious options to our community has grown into Uganda's trusted source for premium fresh fruits.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            Today, we work directly with over 50 local farmers across Uganda, ensuring fair prices for growers while delivering exceptional quality to our customers.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fresh fruit farm" style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px var(--shadow);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="section" style="background: var(--background-light);">
+            <div class="container">
+                <h2 class="section-title">Our Mission & Values</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-seedling" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Sustainability</h3>
+                            <p>We promote sustainable farming practices that protect our environment while producing the best fruits.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Fair Trade</h3>
+                            <p>We ensure fair compensation for our partner farmers, supporting local communities and families.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-star" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Quality First</h3>
+                            <p>Every fruit is carefully selected and inspected to meet our high standards before reaching you.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Community Focus</h3>
+                            <p>We're committed to strengthening our local community through employment and economic growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">From Farm to Your Table</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="background: var(--fresh-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">1</div>
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Careful Selection</h3>
+                        <p>Our team visits partner farms daily to select only the ripest, highest-quality fruits.</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="background: var(--fresh-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">2</div>
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Quality Control</h3>
+                        <p>Each fruit undergoes rigorous quality checks to ensure it meets our freshness standards.</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="background: var(--fresh-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">3</div>
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Careful Packaging</h3>
+                        <p>Fruits are carefully packaged to maintain freshness during transport to your location.</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="background: var(--fresh-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">4</div>
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Fast Delivery</h3>
+                        <p>Same-day delivery ensures you receive your fruits at peak freshness and flavor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section class="section" style="background: var(--background-light);">
+            <div class="container">
+                <h2 class="section-title">Payment Methods</h2>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-dark);">
+                    We offer multiple convenient payment options to make your shopping experience seamless
+                </p>
+
+                <div class="payment-grid">
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-mobile-alt" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Mobile Money</h3>
+                            <div class="mobile-money-logos" style="justify-content: center; margin: 1rem 0;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/MTN_Logo.svg/200px-MTN_Logo.svg.png" alt="MTN" class="mobile-money-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Airtel_logo_logotype.png/200px-Airtel_logo_logotype.png" alt="Airtel" class="mobile-money-logo">
+                            </div>
+                            <p>Pay instantly with MTN Mobile Money or Airtel Money. Fast, secure, and convenient.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fab fa-paypal" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>PayPal</h3>
+                            <p>Secure international payments through PayPal. Perfect for customers worldwide.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-money-bill-wave" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Cash on Delivery</h3>
+                            <p>Pay cash when your fresh produce is delivered to your doorstep. Available in Kampala area.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fab fa-whatsapp" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>WhatsApp Orders</h3>
+                            <p>Order directly through WhatsApp for personalized service and flexible payment arrangements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our team" style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px var(--shadow); margin-bottom: 2rem;">
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dark);">
+                        Our dedicated team of fruit specialists, quality controllers, and delivery experts work together to ensure every customer receives the best possible experience. From our farmers to our customer service team, everyone at Green Fresh Harvests shares the same passion for quality and customer satisfaction.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Green Fresh Harvests. All rights reserved. | Kyengera, Kampala, Uganda</p>
+            <p>Phone: +256742455040 | Email: allanixtimothy99@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

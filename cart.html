@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Green Fresh Harvests</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Green Fresh Harvests Logo">
+                Green Fresh Harvests
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 style="color: var(--primary-green); margin-bottom: 2rem;">
+                    <i class="fas fa-shopping-cart"></i> Your Shopping Cart
+                </h1>
+                
+                <div id="cartContent">
+                    <!-- Cart content will be loaded here -->
+                </div>
+                
+                <div id="emptyCart" style="display: none; text-align: center; padding: 4rem 2rem;">
+                    <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--fresh-green); margin-bottom: 2rem;"></i>
+                    <h2 style="color: var(--primary-green); margin-bottom: 1rem;">Your cart is empty</h2>
+                    <p style="color: var(--text-dark); margin-bottom: 2rem;">Add some fresh fruits to get started!</p>
+                    <a href="products.html" class="btn">
+                        <i class="fas fa-leaf"></i> Browse Products
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Green Fresh Harvests. All rights reserved. | Kyengera, Kampala, Uganda</p>
+            <p>Phone: +256742455040 | Email: allanixtimothy99@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCartPage();
+        });
+
+        function loadCartPage() {
+            const cart = getCart();
+            const cartContent = document.getElementById('cartContent');
+            const emptyCart = document.getElementById('emptyCart');
+            
+            if (cart.length === 0) {
+                cartContent.style.display = 'none';
+                emptyCart.style.display = 'block';
+                return;
+            }
+            
+            cartContent.style.display = 'block';
+            emptyCart.style.display = 'none';
+            
+            let cartHTML = `
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Seller</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            let grandTotal = 0;
+            const groupedCart = groupCartItems(cart);
+            
+            Object.keys(groupedCart).forEach(key => {
+                const item = groupedCart[key];
+                const itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+                
+                cartHTML += `
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                                <div>
+                                    <h4 style="margin: 0; color: var(--primary-green);">${item.name}</h4>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-dark);">per ${item.unit}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="font-weight: bold; color: var(--primary-green);">${item.seller}</div>
+                        </td>
+                        <td>UGX ${item.price.toLocaleString()}</td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <button class="quantity-btn" onclick="updateCartQuantity('${key}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                                <span style="padding: 0.5rem; min-width: 40px; text-align: center;">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateCartQuantity('${key}', ${item.quantity + 1})">+</button>
+                            </div>
+                        </td>
+                        <td style="font-weight: bold; color: var(--accent-green);">UGX ${itemTotal.toLocaleString()}</td>
+                        <td>
+                            <button class="remove-btn" onclick="removeFromCart('${key}')">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            cartHTML += `
+                    </tbody>
+                </table>
+                
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>UGX ${grandTotal.toLocaleString()}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span>${grandTotal >= 50000 ? 'FREE' : 'UGX 5,000'}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total:</span>
+                        <span>UGX ${(grandTotal + (grandTotal >= 50000 ? 0 : 5000)).toLocaleString()}</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="products.html" class="btn" style="background: var(--fresh-green); flex: 1; text-align: center; text-decoration: none;">
+                            <i class="fas fa-arrow-left"></i> Continue Shopping
+                        </a>
+                        <a href="checkout.html" class="btn" style="flex: 1; text-decoration: none; text-align: center;">
+                            <i class="fas fa-credit-card"></i> Proceed to Checkout
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--background-light); border-radius: 10px;">
+                        <h4 style="color: var(--primary-green); margin: 0 0 1rem;">📞 Quick Order via WhatsApp</h4>
+                        <p style="margin: 0 0 1rem; color: var(--text-dark);">Prefer to order directly? Send us your cart via WhatsApp!</p>
+                        <button class="whatsapp-btn" onclick="sendCartToWhatsApp()" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Send Cart to WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            cartContent.innerHTML = cartHTML;
+        }
+
+        function groupCartItems(cart) {
+            const grouped = {};
+            cart.forEach(item => {
+                const key = `${item.id}-${item.seller}`;
+                if (grouped[key]) {
+                    grouped[key].quantity += 1;
+                } else {
+                    grouped[key] = { ...item, quantity: 1 };
+                }
+            });
+            return grouped;
+        }
+
+        function updateCartQuantity(key, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(key);
+                return;
+            }
+            
+            const cart = getCart();
+            const [id, seller] = key.split('-');
+            
+            // Remove all instances of this item
+            const filteredCart = cart.filter(item => !(item.id == id && item.seller === seller));
+            
+            // Add back the correct quantity
+            const itemTemplate = cart.find(item => item.id == id && item.seller === seller);
+            if (itemTemplate) {
+                for (let i = 0; i < newQuantity; i++) {
+                    filteredCart.push(itemTemplate);
+                }
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(filteredCart));
+            updateCartCount();
+            loadCartPage();
+        }
+
+        function removeFromCart(key) {
+            const cart = getCart();
+            const [id, seller] = key.split('-');
+            
+            const filteredCart = cart.filter(item => !(item.id == id && item.seller === seller));
+            localStorage.setItem('cart', JSON.stringify(filteredCart));
+            updateCartCount();
+            loadCartPage();
+            
+            showNotification('Item removed from cart', 'info');
+        }
+
+        function proceedToCheckout() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            // For now, redirect to WhatsApp checkout
+            sendCartToWhatsApp();
+        }
+
+        function sendCartToWhatsApp() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            const groupedCart = groupCartItems(cart);
+            let message = "🛒 *Green Fresh Harvests Order*\\n\\n";
+            let total = 0;
+            
+            Object.keys(groupedCart).forEach(key => {
+                const item = groupedCart[key];
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                message += `• ${item.name}\\n`;
+                message += `  Seller: ${item.seller}\\n`;
+                message += `  Quantity: ${item.quantity} ${item.unit}\\n`;
+                message += `  Price: UGX ${itemTotal.toLocaleString()}\\n\\n`;
+            });
+            
+            const deliveryFee = total >= 50000 ? 0 : 5000;
+            const grandTotal = total + deliveryFee;
+            
+            message += `*Order Summary:*\\n`;
+            message += `Subtotal: UGX ${total.toLocaleString()}\\n`;
+            message += `Delivery: ${deliveryFee === 0 ? 'FREE' : 'UGX 5,000'}\\n`;
+            message += `*Total: UGX ${grandTotal.toLocaleString()}*\\n\\n`;
+            message += "Please confirm this order and let me know the delivery address. Thank you!";
+            
+            const whatsappURL = `https://wa.me/256742455040?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Green Fresh Harvests</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Green Fresh Harvests Logo">
+                Green Fresh Harvests
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(75, 124, 89, 0.7)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); height: 50vh;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Get In Touch</h1>
+                    <p>We're here to help with all your fresh fruit needs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+256742455040" style="color: var(--primary-green); text-decoration: none;">+256742455040</a></p>
+                        <a href="https://wa.me/256742455040?text=Hello%20Green%20Fresh%20Harvests!%20I%20would%20like%20to%20order%20some%20fresh%20fruits." class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:allanixtimothy99@gmail.com" style="color: var(--primary-green); text-decoration: none;">allanixtimothy99@gmail.com</a></p>
+                        <p style="margin-top: 1rem; color: var(--text-dark);">We respond within 24 hours</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Kyengera, Kampala<br>Uganda</p>
+                        <p style="margin-top: 1rem; color: var(--text-dark);">Free delivery within Kampala</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Saturday<br>7:00 AM - 7:00 PM</p>
+                        <p>Sunday<br>8:00 AM - 5:00 PM</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Payment Methods</h3>
+                        <p>Mobile Money: 0742455040<br>PayPal: allanixtimothy99@gmail.com</p>
+                        <p style="margin-top: 1rem; color: var(--text-dark);">Cash on Delivery available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section" style="background: var(--background-light);">
+            <div class="container">
+                <h2 class="section-title">Send Us a Message</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+256...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your fruit needs, delivery preferences, or any questions you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Find Us</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7569!2d32.4729!3d0.2827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sKyengera%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="font-size: 1.1rem; color: var(--text-dark);">
+                        Located in the heart of Kyengera, we serve Kampala and surrounding areas with fresh fruit delivery.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Order Section -->
+        <section class="section" style="background: var(--primary-green); color: var(--text-light);">
+            <div class="container" style="text-align: center;">
+                <h2 style="color: var(--text-light); margin-bottom: 1.5rem;">Ready to Order?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Get fresh fruits delivered to your doorstep today!
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:+256742455040" class="btn" style="background: var(--text-light); color: var(--primary-green);">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/256742455040?text=Hello%20Green%20Fresh%20Harvests!%20I%20would%20like%20to%20place%20an%20order." class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
+                    </a>
+                    <a href="mailto:allanixtimothy99@gmail.com?subject=Fruit%20Order%20Inquiry" class="btn" style="background: var(--accent-green);">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Green Fresh Harvests. All rights reserved. | Kyengera, Kampala, Uganda</p>
+            <p>Phone: +256742455040 | Email: allanixtimothy99@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Fresh Harvests - Premium Fresh Fruits in Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Green Fresh Harvests Logo">
+                Green Fresh Harvests
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Fresh Fruits, Delivered Daily</h1>
+                    <p>Experience the finest selection of fresh, locally-sourced fruits from the heart of Uganda. Quality guaranteed, freshness delivered.</p>
+                    <a href="contact.html" class="btn">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Fresh Harvest</h2>
+                <div class="products-grid">
+                    <div class="product-card" data-product-id="1">
+                        <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Bananas">
+                        <div class="product-info">
+                            <h3>Premium Bananas</h3>
+                            <p>Sweet, ripe bananas perfect for breakfast or snacking. Locally grown with care.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>John Mukasa</h4>
+                                    <p>Banana Specialist • Wakiso</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 3,000 per bunch</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(1, 'Premium Bananas', 3000, 'bunch', 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'John Mukasa')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="2">
+                        <img src="https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Mangoes">
+                        <div class="product-info">
+                            <h3>Juicy Mangoes</h3>
+                            <p>Tropical mangoes bursting with flavor. Hand-picked at perfect ripeness.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Sarah Nambi</h4>
+                                    <p>Mango Farmer • Mukono</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 2,500 per kg</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(2, 'Juicy Mangoes', 2500, 'kg', 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Sarah Nambi')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="3">
+                        <img src="https://images.unsplash.com/photo-1589217157232-464b505b197f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Pineapples">
+                        <div class="product-info">
+                            <h3>Sweet Pineapples</h3>
+                            <p>Golden pineapples with the perfect balance of sweet and tangy flavors.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>David Ssali</h4>
+                                    <p>Pineapple Grower • Luwero</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 8,000 each</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(3, 'Sweet Pineapples', 8000, 'each', 'https://images.unsplash.com/photo-1589217157232-464b505b197f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'David Ssali')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="4">
+                        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Oranges">
+                        <div class="product-info">
+                            <h3>Citrus Oranges</h3>
+                            <p>Vitamin C packed oranges, perfect for fresh juice or healthy snacking.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Grace Nakato</h4>
+                                    <p>Citrus Expert • Jinja</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 4,000 per kg</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(4, 'Citrus Oranges', 4000, 'kg', 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Grace Nakato')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="5">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Avocados">
+                        <div class="product-info">
+                            <h3>Creamy Avocados</h3>
+                            <p>Rich, buttery avocados perfect for salads, toast, or smoothies.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Peter Kato</h4>
+                                    <p>Avocado Farmer • Masaka</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 1,500 each</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(5, 'Creamy Avocados', 1500, 'each', 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Peter Kato')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="6">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Passion Fruits">
+                        <div class="product-info">
+                            <h3>Passion Fruits</h3>
+                            <p>Aromatic passion fruits with intense tropical flavor. Great for juices and desserts.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Mary Namusoke</h4>
+                                    <p>Passion Fruit Grower • Mbarara</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 500 each</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(6, 'Passion Fruits', 500, 'each', 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Mary Namusoke')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="7">
+                        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Watermelons">
+                        <div class="product-info">
+                            <h3>Fresh Watermelons</h3>
+                            <p>Large, juicy watermelons perfect for hot days. Sweet, refreshing flesh with minimal seeds.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Robert Ssemakula</h4>
+                                    <p>Watermelon Specialist • Iganga</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 12,000 each</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(7, 'Fresh Watermelons', 12000, 'each', 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Robert Ssemakula')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="8">
+                        <img src="https://images.unsplash.com/photo-1617112848923-cc2234396a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sweet Papayas">
+                        <div class="product-info">
+                            <h3>Sweet Papayas</h3>
+                            <p>Ripe, sweet papayas with vibrant orange flesh. Rich in vitamins and enzymes.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>Agnes Nakimuli</h4>
+                                    <p>Papaya Farmer • Entebbe</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 6,000 each</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(8, 'Sweet Papayas', 6000, 'each', 'https://images.unsplash.com/photo-1617112848923-cc2234396a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'Agnes Nakimuli')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="9">
+                        <img src="https://images.unsplash.com/photo-1546470427-e26264be0b0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fresh Tomatoes">
+                        <div class="product-info">
+                            <h3>Fresh Tomatoes</h3>
+                            <p>Fresh, vine-ripened tomatoes perfect for cooking and salads. Grown organically.</p>
+                            <div class="seller-info">
+                                <div class="seller-details">
+                                    <h4>James Okello</h4>
+                                    <p>Vegetable Farmer • Mbale</p>
+                                </div>
+                            </div>
+                            <div class="price">UGX 3,500 per kg</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(9, 'Fresh Tomatoes', 3500, 'kg', 'https://images.unsplash.com/photo-1546470427-e26264be0b0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'James Okello')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Products Button -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="products.html" class="btn" style="font-size: 1.1rem; padding: 15px 40px;">
+                        <i class="fas fa-leaf"></i> View All Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="section" style="background: var(--background-light);">
+            <div class="container">
+                <h2 class="section-title">Why Choose Green Fresh Harvests?</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-leaf" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>100% Fresh</h3>
+                            <p>All our fruits are harvested at peak ripeness and delivered fresh to your doorstep.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-truck" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>Same-day delivery within Kampala and next-day delivery to surrounding areas.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info" style="text-align: center;">
+                            <i class="fas fa-heart" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                            <h3>Quality Guaranteed</h3>
+                            <p>We stand behind our products with a 100% satisfaction guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Green Fresh Harvests. All rights reserved. | Kyengera, Kampala, Uganda</p>
+            <p>Phone: +256742455040 | Email: allanixtimothy99@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
